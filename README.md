@@ -16,11 +16,12 @@ On each page the script sends one `HEAD` request to the same URL and reads the `
 - Sites that hide the PHP version (`expose_php=Off`, CDN header stripping) cannot be detected.
 - Distro packages (for example Ubuntu 22.04 PHP 8.1) keep the old version number after backporting the fix, so a warning can be a false positive. The banner says so.
 - Newer branches than 8.5 are treated as fixed.
-- Chrome on Android and Safari are not covered (see the guide).
+- Chrome and Brave on mobile have no extension support, so they get a manual bookmarklet instead of automatic warnings.
 
 ## Install
 
-Pick your browser in [docs/install-humans.md](docs/install-humans.md). It covers Chrome, Edge, Brave, Opera, Vivaldi, Arc, other Chromium browsers, and Firefox (desktop and Android).
+- Desktop: [docs/install-humans.md](docs/install-humans.md) covers Chrome, Edge, Brave, Opera, Vivaldi, Arc, other Chromium browsers, and Firefox.
+- Mobile: [docs/install-mobile.md](docs/install-mobile.md) covers Firefox on Android and Safari on iOS (automatic), plus a bookmarklet for Chrome, Brave and others (manual).
 
 Script URL for one-click install in a userscript manager (after you have one installed):
 
@@ -34,6 +35,7 @@ AI agents: see [AGENTS.md](AGENTS.md) and [docs/install-agents.md](docs/install-
 
 ```
 node test/version.test.js
+node test/bookmarklet.test.js
 ```
 
 ## License

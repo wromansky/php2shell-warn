@@ -46,10 +46,9 @@ Notes:
 
 Firefox forks (LibreWolf, Waterfox, Zen, Floorp) use the same addons.mozilla.org steps.
 
-## Not covered
+## Mobile
 
-- **Chrome on Android and iOS browsers**: no desktop-style extensions, so no userscript manager. Use Firefox on Android, Kiwi Browser, or similar if you need mobile coverage.
-- **Safari**: needs a different userscript app (Userscripts for Safari). The script should work there, but it is untested.
+See [install-mobile.md](install-mobile.md).
 
 ## Verify it works
 
