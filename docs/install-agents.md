@@ -4,6 +4,10 @@ Goal: get `php2shell-warn.user.js` running in the user's browser. The script is 
 
 Script source: `https://raw.githubusercontent.com/wromansky/php2shell-warn/main/php2shell-warn.user.js`
 
+## Mobile
+
+Firefox Android and Safari iOS (Userscripts app) can run the script. Chrome and Brave mobile cannot run extensions: give the user `docs/bookmarklet.txt` and the steps in [install-mobile.md](install-mobile.md). Never tell the user Chrome or Brave mobile will warn automatically.
+
 ## Preconditions
 
 1. Identify the browser: Chromium family (Chrome, Edge, Brave, Opera, Vivaldi, Arc, Chromium) or Firefox family (Firefox, LibreWolf, Waterfox, Zen, Floorp).
