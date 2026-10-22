@@ -4,16 +4,23 @@ A userscript that warns you when a website you visit advertises a PHP version af
 
 - Affected: every PHP version up to 8.1, plus 8.2.0-8.2.34, 8.3.0-8.3.35, 8.4.0-8.4.26, 8.5.0-8.5.11.
 - Fixed in: **8.2.35, 8.3.36, 8.4.27, 8.5.12**.
-- Affected site: a red, dismissible banner appears at the top of the page.
-- Not affected, version hidden, or no PHP: nothing happens, no UI.
+| What the site shows | What you see |
+|---|---|
+| Advertises an **affected** PHP version | **Red** banner |
+| Confirmed PHP, but version hidden | **Orange** banner (cannot confirm it is patched) |
+| Advertises a **patched** PHP version | Nothing |
+| No sign of PHP | Nothing |
+
+"Confirmed PHP" means at least one of: a `PHP` `X-Powered-By` header, WordPress or Drupal response headers, a CMS `generator` meta tag (WordPress, Drupal, Joomla, MediaWiki, Magento and similar PHP apps), `wp-content` or `wp-includes` assets, a `PHPSESSID` cookie, or a `.php` page URL.
 
 ## How it works
 
-On each page the script sends one `HEAD` request to the same URL and reads the `X-Powered-By` and `Server` response headers for `PHP/x.y.z`. Results are cached per site for 24 hours (in the userscript manager's storage, not the site's).
+On each page the script sends one `HEAD` request to the same URL and reads a few response headers (`X-Powered-By`, `Server`, `Link`, `X-Pingback`, `X-Generator`, Drupal cache headers). It also checks the page itself for the other signs above. Results are cached per site for 24 hours (in the userscript manager's storage, not the site's).
 
 ## Limits
 
-- Sites that hide the PHP version (`expose_php=Off`, CDN header stripping) cannot be detected.
+- Sites that run PHP without any of the signs above (custom apps behind a CDN, for example drupal.org, php.net and phpmyadmin.net sent none) stay silent. Hidden PHP cannot be detected from the browser.
+- A static export of a WordPress site can show `wp-content` assets without running PHP, giving an orange banner.
 - Distro packages (for example Ubuntu 22.04 PHP 8.1) keep the old version number after backporting the fix, so a warning can be a false positive. The banner says so.
 - Newer branches than 8.5 are treated as fixed.
 - Chrome and Brave on mobile have no extension support, so they get a manual bookmarklet instead of automatic warnings.

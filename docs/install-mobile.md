@@ -40,7 +40,7 @@ Tampermonkey for Safari (paid) also works if you already own it.
 
 ## Bookmarklet (Chrome, Brave, Edge, any mobile browser)
 
-A bookmarklet is a bookmark that runs code when you open it. It is **manual**: it checks only the page you are on, and only when you run it. It always replies (warning, OK, or no version found), because you asked it to.
+A bookmarklet is a bookmark that runs code when you open it. It is **manual**: it checks only the page you are on, and only when you run it. It always replies, because you asked it to: `WARNING` (affected version), `ORANGE` (runs PHP, version hidden), `OK` (patched version), or `No PHP signs found`.
 
 1. Open [`docs/bookmarklet.txt`](bookmarklet.txt) in the repo and copy the whole line (starts with `javascript:`).
 2. Bookmark any page in your browser, then edit the bookmark: set the name to `PHP check` and replace the URL with the copied line.
